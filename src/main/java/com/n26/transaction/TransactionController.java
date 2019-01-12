@@ -22,11 +22,15 @@ public class TransactionController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity addTransaction(@RequestBody Transaction request) throws InvalidTransactionDataException {
+    @PostMapping(consumes = "application/json")
+    public void addTransaction(@RequestBody Transaction request) throws InvalidTransactionDataException, PastTimestampException {
         TransactionDO parsedRequest = parser.parseTransaction(request);
         service.addTransaction(parsedRequest);
-        return null;
+    }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping
+    public void deleteTransactions() {
+        service.deleteTransactions();
     }
 }
