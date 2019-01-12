@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 public class StatisticsAggregator {
 
     public StatisticsDO add(StatisticsDO statistics, BigDecimal amount) {
+
         return new StatisticsDOBuilder()
                 .withCount(statistics.getCount()+1)
                 .withSum(statistics.getSum().add(amount))

@@ -3,6 +3,8 @@ package com.n26.transaction;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
 
@@ -17,7 +19,7 @@ public class TransactionParser {
 
     BigDecimal parseAmount(Transaction transaction) throws InvalidTransactionDataException {
         try{
-            return new BigDecimal(transaction.getAmount());
+            return new BigDecimal(transaction.getAmount()).setScale(2, RoundingMode.HALF_UP);
 
         } catch(NumberFormatException e) {
             throw new InvalidTransactionDataException("Transaction amount : " + transaction.getAmount());

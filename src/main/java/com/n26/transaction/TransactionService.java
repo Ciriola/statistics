@@ -76,4 +76,22 @@ public class TransactionService {
             lock.unlock();
         }
     }
+
+    public StatisticsDO getStatistics() {
+
+        try {
+            lock.lock();
+
+            return generateStatistics(oneMinuteStats);
+
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    StatisticsDO generateStatistics(StatisticsDO[] oneMinuteStats) {
+        return Arrays.stream(oneMinuteStats)
+                .filter(e -> !timeValidator.isExpired(e.getTimestamp()))
+                .reduce(new StatisticsDO(), aggregator::combine);
+    }
 }

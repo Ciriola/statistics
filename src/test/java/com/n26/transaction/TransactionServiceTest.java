@@ -40,8 +40,9 @@ public class TransactionServiceTest {
 
     @Test
     public void aggregateSingleValidTransaction_workingAsExpected() {
-        final TransactionDO transactionDO = new TransactionDO( new BigDecimal("10.0"), NOW);
-        final StatisticsDO statisticsDO = new StatisticsDO(new BigDecimal("20.0"), NOW);
+        final StatisticsDO statisticsDO = new StatisticsDO(new BigDecimal("20.2"), NOW);
+        final TransactionDO transactionDO = new TransactionDO( new BigDecimal("10.01"), NOW);
+
         final StatisticsDO aggregate = transactionService.combineOrReset(statisticsDO, transactionDO);
 
         Assert.assertEquals(transactionDO.getTimestamp(), aggregate.getTimestamp());

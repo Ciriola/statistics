@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Instant;
 
 @RunWith(JUnit4.class)
@@ -15,6 +16,9 @@ public class TransactionParserTest {
 
     private final static String EXAMPLE_AMOUNT = "12.3343";
     private final static String EXAMPLE_TIMESTAMP = "2018-07-17T09:59:51.312Z";
+
+    private final static int SCALE = 2;
+    private final static RoundingMode ROUNDING = RoundingMode.HALF_UP;
 
 
     @Test(expected = InvalidTransactionDataException.class)
@@ -31,7 +35,7 @@ public class TransactionParserTest {
 
     @Test
     public void transactionWithValidAmountAndTimestamp_returnsValidTransactionDO() throws InvalidTransactionDataException {
-        BigDecimal expectedAmount = new BigDecimal(EXAMPLE_AMOUNT);
+        BigDecimal expectedAmount = new BigDecimal(EXAMPLE_AMOUNT).setScale(SCALE, ROUNDING);
         Transaction transaction = new Transaction(EXAMPLE_AMOUNT, EXAMPLE_TIMESTAMP);
         TransactionDO actual = parser.parseTransaction(transaction);
 

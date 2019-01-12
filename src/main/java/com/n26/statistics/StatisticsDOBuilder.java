@@ -41,14 +41,4 @@ public class StatisticsDOBuilder {
         return new StatisticsDO(timestamp, sum, max, min, count);
     }
 
-    public static StatisticsDO add(StatisticsDO statistics, BigDecimal amount) {
-        return new StatisticsDOBuilder()
-                .withCount(statistics.getCount() + 1)
-                .withSum(statistics.getSum().add(amount))
-                .withMax(statistics.getMax().max(amount))
-                .withMin(statistics.getMin().min(amount))
-                .withTimestamp(statistics.getTimestamp())
-                .build();
-    }
-
 }
