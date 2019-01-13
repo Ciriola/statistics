@@ -1,6 +1,6 @@
 package com.n26.statistics;
 
-import com.n26.transaction.TransactionService;
+import com.n26.transaction.ConcurrentTransactionService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 public class StatisticsControllerTest {
 
     @Mock
-    private TransactionService service;
+    private ConcurrentTransactionService service;
 
     @InjectMocks
     private StatisticsController controller;

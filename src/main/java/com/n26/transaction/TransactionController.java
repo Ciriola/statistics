@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
 
     private static final Logger LOG = LoggerFactory.getLogger(TransactionController.class);
-    private final TransactionService service;
+    private final ConcurrentTransactionService service;
     private final TransactionParser parser;
 
     @Autowired
-    TransactionController(TransactionService service, TransactionParser parser) {
+    TransactionController(ConcurrentTransactionService service, TransactionParser parser) {
         this.service = service;
         this.parser = parser;
     }

@@ -1,6 +1,6 @@
 package com.n26.statistics;
 
-import com.n26.transaction.TransactionService;
+import com.n26.transaction.ConcurrentTransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ public class StatisticsController {
 
     private static final Logger LOG = LoggerFactory.getLogger(StatisticsController.class);
 
-    private TransactionService transactionService;
+    private ConcurrentTransactionService transactionService;
 
     @Autowired
-    StatisticsController(TransactionService transactionService) {
+    StatisticsController(ConcurrentTransactionService transactionService) {
         this.transactionService = transactionService;
     }
 

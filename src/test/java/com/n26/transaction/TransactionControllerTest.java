@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 public class TransactionControllerTest {
 
     @Mock
-    private TransactionService service;
+    private ConcurrentTransactionService service;
 
     @Mock
     private TransactionParser parser;
