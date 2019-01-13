@@ -92,6 +92,7 @@ public class TransactionService {
     StatisticsDO generateStatistics(StatisticsDO[] oneMinuteStats) {
         return Arrays.stream(oneMinuteStats)
                 .filter(e -> !timeValidator.isExpired(e.getTimestamp()))
-                .reduce(new StatisticsDO(), aggregator::combine);
+                .reduce(aggregator::combine)
+                .orElseGet(StatisticsDO::new);
     }
 }

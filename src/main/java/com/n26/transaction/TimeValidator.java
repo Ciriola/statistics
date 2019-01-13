@@ -23,7 +23,7 @@ public class TimeValidator {
         checkIsNotExpired(timestamp);
     }
 
-    void checkIsNotInTheFuture(Instant timestamp) throws InvalidTransactionDataException {
+    private void checkIsNotInTheFuture(Instant timestamp) throws InvalidTransactionDataException {
         Instant current = clock.instant();
         if(timestamp.isAfter(current)) {
             throw new InvalidTransactionDataException("Transaction is in the future. " +
@@ -31,7 +31,7 @@ public class TimeValidator {
         }
     }
 
-    void checkIsNotExpired(Instant timestamp) throws PastTimestampException {
+    private void checkIsNotExpired(Instant timestamp) throws PastTimestampException {
         Instant current = clock.instant();
         if(isExpired(timestamp, current)) {
             throw new PastTimestampException("Transaction has expired. " +

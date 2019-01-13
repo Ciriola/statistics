@@ -23,21 +23,21 @@ public class TransactionParserTest {
 
     @Test(expected = InvalidTransactionDataException.class)
     public void transactionWithInvalidAmount_raisingException() throws InvalidTransactionDataException {
-        Transaction transaction = new Transaction("abcd", EXAMPLE_TIMESTAMP);
-        parser.parseTransaction(transaction);
+        TransactionDTO transactionDTO = new TransactionDTO("abcd", EXAMPLE_TIMESTAMP);
+        parser.parseTransaction(transactionDTO);
     }
 
     @Test(expected = InvalidTransactionDataException.class)
     public void transactionWithInvalidTimestamp_raisingException() throws InvalidTransactionDataException {
-        Transaction transaction = new Transaction(EXAMPLE_AMOUNT, "abcd");
-        parser.parseTransaction(transaction);
+        TransactionDTO transactionDTO = new TransactionDTO(EXAMPLE_AMOUNT, "abcd");
+        parser.parseTransaction(transactionDTO);
     }
 
     @Test
     public void transactionWithValidAmountAndTimestamp_returnsValidTransactionDO() throws InvalidTransactionDataException {
         BigDecimal expectedAmount = new BigDecimal(EXAMPLE_AMOUNT).setScale(SCALE, ROUNDING);
-        Transaction transaction = new Transaction(EXAMPLE_AMOUNT, EXAMPLE_TIMESTAMP);
-        TransactionDO actual = parser.parseTransaction(transaction);
+        TransactionDTO transactionDTO = new TransactionDTO(EXAMPLE_AMOUNT, EXAMPLE_TIMESTAMP);
+        TransactionDO actual = parser.parseTransaction(transactionDTO);
 
         Instant expectedTimestamp = Instant.parse(EXAMPLE_TIMESTAMP);
 

@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +22,7 @@ public class TransactionController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = "application/json")
-    public void addTransaction(@RequestBody Transaction request) throws InvalidTransactionDataException, PastTimestampException {
+    public void addTransaction(@RequestBody TransactionDTO request) throws InvalidTransactionDataException, PastTimestampException {
         TransactionDO parsedRequest = parser.parseTransaction(request);
         service.addTransaction(parsedRequest);
     }

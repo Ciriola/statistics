@@ -1,6 +1,5 @@
 package com.n26.error;
 
-import com.n26.transaction.InvalidJsonException;
 import com.n26.transaction.InvalidTransactionDataException;
 import com.n26.transaction.PastTimestampException;
 import org.slf4j.Logger;
@@ -19,12 +18,6 @@ public class UncaughtExceptionHandler {
     @ExceptionHandler(PastTimestampException.class)
     public void handlePastTimestamp(PastTimestampException e) {
         LOG.debug("The timestamp is in the past. {} ", e.getMessage());
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(InvalidJsonException.class)
-    public void handleInvalidJson(InvalidJsonException e) {
-        LOG.debug("The json is invalid. {} ", e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)

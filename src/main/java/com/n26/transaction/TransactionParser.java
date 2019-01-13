@@ -3,7 +3,6 @@ package com.n26.transaction;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
@@ -11,26 +10,26 @@ import java.time.format.DateTimeParseException;
 @Component
 public class TransactionParser {
 
-    TransactionDO parseTransaction(Transaction transaction) throws InvalidTransactionDataException {
-        BigDecimal amount = parseAmount(transaction);
-        Instant timestamp = parseTimestamp(transaction);
+    TransactionDO parseTransaction(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
+        BigDecimal amount = parseAmount(transactionDTO);
+        Instant timestamp = parseTimestamp(transactionDTO);
         return new TransactionDO(amount, timestamp);
     }
 
-    BigDecimal parseAmount(Transaction transaction) throws InvalidTransactionDataException {
+    BigDecimal parseAmount(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
         try{
-            return new BigDecimal(transaction.getAmount()).setScale(2, RoundingMode.HALF_UP);
+            return new BigDecimal(transactionDTO.getAmount()).setScale(2, RoundingMode.HALF_UP);
 
         } catch(NumberFormatException e) {
-            throw new InvalidTransactionDataException("Transaction amount : " + transaction.getAmount());
+            throw new InvalidTransactionDataException("Transaction amount : " + transactionDTO.getAmount());
         }
     }
 
-    Instant parseTimestamp(Transaction transaction) throws InvalidTransactionDataException {
+    Instant parseTimestamp(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
         try{
-            return Instant.parse(transaction.getTimestamp());
+            return Instant.parse(transactionDTO.getTimestamp());
         } catch(DateTimeParseException e) {
-            throw new InvalidTransactionDataException("Transaction timestamp : " + transaction.getTimestamp());
+            throw new InvalidTransactionDataException("Transaction timestamp : " + transactionDTO.getTimestamp());
         }
     }
 

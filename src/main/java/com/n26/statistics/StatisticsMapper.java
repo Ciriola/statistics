@@ -19,14 +19,14 @@ public class StatisticsMapper {
                 .build();
     }
 
-    private static BigDecimal calculateAverage(StatisticsDO statisticsDO) {
+    static BigDecimal calculateAverage(StatisticsDO statisticsDO) {
         if(statisticsDO.getCount() == 0) {
             return BigDecimal.ZERO;
         }
         return statisticsDO.getSum().divide(new BigDecimal(statisticsDO.getCount()), 2, RoundingMode.HALF_UP);
     }
 
-    private static String convertBigDecimal(BigDecimal bigDecimal) {
+    static String convertBigDecimal(BigDecimal bigDecimal) {
         final DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.ROOT);
 
         final DecimalFormat df = new DecimalFormat();
