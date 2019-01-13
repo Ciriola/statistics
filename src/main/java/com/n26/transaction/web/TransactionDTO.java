@@ -2,8 +2,8 @@ package com.n26.transaction.web;
 
 public class TransactionDTO {
 
-    private String amount;
-    private String timestamp;
+    private final String amount;
+    private final String timestamp;
 
     public TransactionDTO(String amount, String timestamp) {
         this.amount = amount;

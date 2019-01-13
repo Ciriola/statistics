@@ -31,12 +31,12 @@ public class ConcurrentTransactionService {
      * This methods inserts the transaction (through its timestamp)
      * into the array, combining its amount with the amount
      * of possible transaction already present in the same array cell
-     * (representing a specific millisecond
-     * Just its amount if no other transaction present.
+     * (representing a specific millisecond) or just inserts its
+     * amount if no other transaction is present or expired.
      *
      * @param parsedRequest the transaction to be added if no exception happens
-     * @throws InvalidTransactionDataException
-     * @throws PastTimestampException
+     * @throws InvalidTransactionDataException if the transaction timestamp is in the future
+     * @throws PastTimestampException if the transaction has a timestamp older than a minute
      */
     public void addTransaction(TransactionDO parsedRequest) throws InvalidTransactionDataException, PastTimestampException {
         Instant timestamp = parsedRequest.getTimestamp();
@@ -57,6 +57,10 @@ public class ConcurrentTransactionService {
         }
     }
 
+    /**
+     * This method deletes all transactions
+     * from the array
+     */
     public void deleteTransactions() {
         try {
             lock.writeLock().lock();
@@ -67,6 +71,12 @@ public class ConcurrentTransactionService {
         }
     }
 
+    /**
+     * This method calculates the global statistics
+     * and returns them
+     *
+     * @return the global statistics data
+     */
     public StatisticsDO getStatistics() {
 
         try {

@@ -22,6 +22,12 @@ public class StatisticsController {
         this.transactionService = transactionService;
     }
 
+    /**
+     * This method is returning the statistics
+     * in the last 60 seconds
+     *
+     * @return the global statistics in the last 60 seconds
+     */
     @GetMapping(produces = "application/json")
     public StatisticsDTO getStatistics() {
         final StatisticsDO statistics = transactionService.getStatistics();

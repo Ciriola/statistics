@@ -18,7 +18,7 @@ public class TransactionParser {
         return new TransactionDO(amount, timestamp);
     }
 
-    BigDecimal parseAmount(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
+    private BigDecimal parseAmount(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
         try{
             return new BigDecimal(transactionDTO.getAmount()).setScale(2, RoundingMode.HALF_UP);
 
@@ -27,7 +27,7 @@ public class TransactionParser {
         }
     }
 
-    Instant parseTimestamp(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
+    private Instant parseTimestamp(TransactionDTO transactionDTO) throws InvalidTransactionDataException {
         try{
             return Instant.parse(transactionDTO.getTimestamp());
         } catch(DateTimeParseException e) {

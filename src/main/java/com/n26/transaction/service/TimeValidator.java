@@ -9,7 +9,7 @@ import java.time.Instant;
 @Component
 public class TimeValidator {
 
-    public static final int TIME_UNITS = 60000;
+    static final int TIME_UNITS = 60000;
 
     private final Clock clock;
 

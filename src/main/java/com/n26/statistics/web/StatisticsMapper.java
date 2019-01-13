@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class StatisticsMapper {
 
-    public static StatisticsDTO map(StatisticsDO statisticsDO) {
+   static StatisticsDTO map(StatisticsDO statisticsDO) {
 
         return new StatisticsDTO.StatisticDTOBuilder()
                 .withCount(statisticsDO.getCount())

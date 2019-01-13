@@ -9,6 +9,14 @@ import java.math.BigDecimal;
 @Component
 public class StatisticsAggregator {
 
+    /**
+     * This method is adding a given amount to a statistic.
+     * The statistic could be empty (with all zeros)
+     *
+     * @param statistics the statistics a
+     * @param amount the amount to add
+     * @return the updated statistic
+     */
     public StatisticsDO add(StatisticsDO statistics, BigDecimal amount) {
 
         BigDecimal minimum = statistics.getCount() == 0 ? amount : statistics.getMin().min(amount);
@@ -23,6 +31,13 @@ public class StatisticsAggregator {
                 .build();
     }
 
+    /**
+     * This method is combining two statistics.
+     *
+     * @param first the first statistic
+     * @param second the second statistic
+     * @return the combined statistic
+     */
     public StatisticsDO combine(StatisticsDO first, StatisticsDO second) {
 
         if(first.getCount() == 0) {
