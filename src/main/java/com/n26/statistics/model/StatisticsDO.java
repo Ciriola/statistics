@@ -1,4 +1,4 @@
-package com.n26.statistics;
+package com.n26.statistics.model;
 
 import java.math.BigDecimal;
 import java.time.Instant;

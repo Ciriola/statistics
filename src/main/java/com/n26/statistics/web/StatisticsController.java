@@ -1,6 +1,7 @@
-package com.n26.statistics;
+package com.n26.statistics.web;
 
-import com.n26.transaction.ConcurrentTransactionService;
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.transaction.service.ConcurrentTransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

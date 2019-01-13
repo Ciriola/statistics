@@ -1,5 +1,8 @@
-package com.n26.transaction;
+package com.n26.transaction.service;
 
+import com.n26.transaction.service.InvalidTransactionDataException;
+import com.n26.transaction.service.PastTimestampException;
+import com.n26.transaction.service.TimeValidator;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;

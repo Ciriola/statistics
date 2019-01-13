@@ -1,5 +1,7 @@
-package com.n26.statistics;
+package com.n26.statistics.service;
 
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.statistics.model.StatisticsDOBuilder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

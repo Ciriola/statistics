@@ -1,4 +1,4 @@
-package com.n26.statistics;
+package com.n26.statistics.web;
 
 public class StatisticsDTO {
 

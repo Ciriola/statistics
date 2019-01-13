@@ -1,5 +1,12 @@
-package com.n26.transaction;
+package com.n26.transaction.web;
 
+import com.n26.transaction.model.TransactionDO;
+import com.n26.transaction.service.ConcurrentTransactionService;
+import com.n26.transaction.service.InvalidTransactionDataException;
+import com.n26.transaction.service.PastTimestampException;
+import com.n26.transaction.web.TransactionController;
+import com.n26.transaction.web.TransactionDTO;
+import com.n26.transaction.web.TransactionParser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

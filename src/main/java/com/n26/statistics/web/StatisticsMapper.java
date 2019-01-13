@@ -1,4 +1,6 @@
-package com.n26.statistics;
+package com.n26.statistics.web;
+
+import com.n26.statistics.model.StatisticsDO;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

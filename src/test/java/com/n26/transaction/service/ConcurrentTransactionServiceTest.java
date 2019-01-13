@@ -1,7 +1,11 @@
-package com.n26.transaction;
+package com.n26.transaction.service;
 
-import com.n26.statistics.StatisticsAggregator;
-import com.n26.statistics.StatisticsDO;
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.transaction.model.TransactionDO;
+import com.n26.transaction.service.ConcurrentTransactionService;
+import com.n26.transaction.service.InvalidTransactionDataException;
+import com.n26.transaction.service.PastTimestampException;
+import com.n26.transaction.service.TransactionService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +20,6 @@ import java.time.ZoneOffset;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 

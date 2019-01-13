@@ -1,7 +1,10 @@
-package com.n26.transaction;
+package com.n26.transaction.service;
 
-import com.n26.statistics.StatisticsAggregator;
-import com.n26.statistics.StatisticsDO;
+import com.n26.statistics.service.StatisticsAggregator;
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.transaction.model.TransactionDO;
+import com.n26.transaction.service.TimeValidator;
+import com.n26.transaction.service.TransactionService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;

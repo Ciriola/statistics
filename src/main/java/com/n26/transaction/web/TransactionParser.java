@@ -1,5 +1,7 @@
-package com.n26.transaction;
+package com.n26.transaction.web;
 
+import com.n26.transaction.service.InvalidTransactionDataException;
+import com.n26.transaction.model.TransactionDO;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

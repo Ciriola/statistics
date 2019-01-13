@@ -1,7 +1,7 @@
 package com.n26.error;
 
-import com.n26.transaction.InvalidTransactionDataException;
-import com.n26.transaction.PastTimestampException;
+import com.n26.transaction.service.InvalidTransactionDataException;
+import com.n26.transaction.service.PastTimestampException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

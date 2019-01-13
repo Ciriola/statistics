@@ -1,6 +1,9 @@
-package com.n26.statistics;
+package com.n26.statistics.web;
 
-import com.n26.transaction.ConcurrentTransactionService;
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.statistics.web.StatisticsController;
+import com.n26.statistics.web.StatisticsDTO;
+import com.n26.transaction.service.ConcurrentTransactionService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

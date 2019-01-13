@@ -1,5 +1,8 @@
-package com.n26.statistics;
+package com.n26.statistics.service;
 
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.statistics.model.StatisticsDOBuilder;
+import com.n26.statistics.service.StatisticsAggregator;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

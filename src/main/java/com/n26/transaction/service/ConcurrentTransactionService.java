@@ -1,6 +1,7 @@
-package com.n26.transaction;
+package com.n26.transaction.service;
 
-import com.n26.statistics.StatisticsDO;
+import com.n26.statistics.model.StatisticsDO;
+import com.n26.transaction.model.TransactionDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import static com.n26.transaction.TimeValidator.TIME_UNITS;
+import static com.n26.transaction.service.TimeValidator.TIME_UNITS;
 
 @Service
 public class ConcurrentTransactionService {

@@ -1,4 +1,4 @@
-package com.n26.transaction;
+package com.n26.transaction.service;
 
 public class InvalidTransactionDataException extends Exception {
 

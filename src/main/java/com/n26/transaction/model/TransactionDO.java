@@ -1,4 +1,4 @@
-package com.n26.transaction;
+package com.n26.transaction.model;
 
 import java.math.BigDecimal;
 import java.time.Instant;
